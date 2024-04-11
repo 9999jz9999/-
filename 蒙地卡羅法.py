@@ -45,7 +45,7 @@ print("積分的估計值:", integral_estimate)
 
 import numpy as np
 
-def monte_carlo_cone_surface_area(num_samples):
+def monte_carlo_cone_volume(num_samples):
     inside_cone = 0
     for _ in range(num_samples):
         # 在圓錐內部隨機選擇一個點 (x, y, z)
@@ -60,12 +60,9 @@ def monte_carlo_cone_surface_area(num_samples):
     # 計算蒙地卡羅估計值
     volume_unit_sphere = np.pi
     volume_cone = volume_unit_sphere * inside_cone / num_samples
-    base_area_unit_circle = np.pi
-    radius_cone = np.sqrt(2)  # 圓錐的半徑為根號2
-    surface_area_cone = np.pi * radius_cone + volume_cone
 
-    return surface_area_cone
+    return volume_cone
 
 num_samples = int(1e7)  # 可以調整抽樣數量
-surface_area_estimate = monte_carlo_cone_surface_area(num_samples)
-print("圓錐表面積的估計值:", surface_area_estimate)
+cone_volume_estimate = monte_carlo_cone_volume(num_samples)
+print("圓錐體積的估計值:", cone_volume_estimate)
