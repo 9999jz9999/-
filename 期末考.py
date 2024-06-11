@@ -51,9 +51,6 @@ print("你的生日(中華民國年):", birth_date.strftime("%Y-%m-%d").replace(
 
 
 #___________________________________________________________________________________________________________________
-
-
-
 #第二題
 
 import matplotlib.pyplot as plt
@@ -85,3 +82,92 @@ plt.tight_layout()
 
 # 顯示圖形
 plt.show()
+
+#___________________________________________
+#第三題
+
+
+import numpy as np
+
+# 函數
+def f(x):
+    return np.sin(x)
+
+# 積分區間
+a = 0
+b = 1
+
+# 生成隨機點
+N = 1000000  # 生成數量
+x_random = np.random.uniform(a, b, N)
+
+# 計算平均
+f_values = f(x_random)
+f_mean = np.mean(f_values)
+
+# 估計
+integral_estimate = (b - a) * f_mean
+
+print(f"估計的積分值為：{integral_estimate}")
+
+
+#______________________________
+#第四題
+S = 12240036
+#a
+print(S)
+#b
+octal_number = oct(S)
+
+print(octal_number)
+#c
+binary_number = bin(S)
+
+print(binary_number)
+#d
+hexadecimal_number = hex(S)
+
+print(hexadecimal_number)
+#e
+hexadecimal_number = hex(S)
+
+print(hexadecimal_number)
+#f
+formatted_string = f"{S:>20}"
+
+print(formatted_string)
+#g
+import math
+
+pi = math.pi
+pi_value = "{:.6f}".format(pi)
+print(pi_value)
+#h
+import math
+
+e_value = math.e
+
+formatted_string_1 = f"{'0'*5}{e_value:.6f}"
+
+print(formatted_string_1)
+#i
+import math
+
+e_to_pi = math.exp(math.pi)
+
+formatted_string_2 = f"{'0'*3}{e_to_pi:.3f}"
+
+print(formatted_string_2)
+
+#j
+import pandas as pd
+
+# 创建DataFrame
+df = pd.DataFrame({
+    'Description': ["學號10進位", "學號8進位", "學號2進位","學號16進位","學號16進位","學號右側填空","pi小數點後6位"
+                    ,"e","e**pi"],
+    'Result': [S, octal_number, binary_number,hexadecimal_number,hexadecimal_number,formatted_string,pi_value,formatted_string_1,formatted_string_2]
+})
+
+# 将DataFrame保存为Excel文件
+df.to_excel('results.xlsx', index=False)
